@@ -1,0 +1,83 @@
+version: "3.7"
+
+services:
+  influxdb:
+    image: influxdb:latest
+    container_name: influxdb
+    ports:
+      - 8086:8086
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=tig-stack-user
+      - DOCKER_INFLUXDB_INIT_PASSWORD=12345678
+      - DOCKER_INFLUXDB_INIT_ORG=tig-stack-org
+      - DOCKER_INFLUXDB_INIT_BUCKET=tig-stack-bucket
+      - DOCKER_INFLUXDB_INIT_RETENTION=1w
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=302f3ef7-6752-4e98-a18d-3c0bf88a226e-d96b9f58-38e7-11ec-8d3d-0242ac130003
+    volumes:
+      - ./data/docker/influxdb/data:/var/lib/influxdb
+
+  telegraf:
+    image: telegraf:latest
+    container_name: telegraf
+    links:
+      - influxdb
+    depends_on:
+      - influxdb
+    user: "0"
+    environment: 
+      - DOCKER_INFLUXDB_INIT_ORG=tig-stack-org
+      - DOCKER_INFLUXDB_INIT_BUCKET=tig-stack-bucket
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=302f3ef7-6752-4e98-a18d-3c0bf88a226e-d96b9f58-38e7-11ec-8d3d-0242ac130003
+    volumes:
+      - ./telegraf.conf:/etc/telegraf/telegraf.conf:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    env_file:
+      - 'env.grafana'
+    user: "0"
+    links:
+      - influxdb
+    volumes:
+      - ./data/docker/grafana/data:/var/lib/grafana
+
+  # DB
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - ./data/docker/mongo/db:/data/db
+
+  elasticsearch:
+    image: elasticsearch:7.14.2
+    container_name: elasticsearch
+    ports:
+      - 9200:9200
+      - 9300:9300
+    volumes:
+      - ./data/docker/es/db:/usr/share/elasticsearch/data
+    environment:
+      - discovery.type=single-node
+
+  greeting-app:
+    build:
+      context: .
+      dockerfile: ./greeting/Dockerfile
+    container_name: greeting-app
+    ports: 
+      - 8080:8080
+    restart: always
+    depends_on:
+      - mongodb
+      - elasticsearch
+    volumes:
+      - ./greeting/target/greeting-0.0.1-SNAPSHOT.jar:/app.jar
+

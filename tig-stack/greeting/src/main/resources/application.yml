@@ -1,0 +1,9 @@
+spring:
+    data:
+        mongodb:
+            # uri: mongodb://localhost:27017/db
+            uri: mongodb://mongodb:27017/db
+    elasticsearch:
+        rest:
+            # uris: [localhost:9200]
+            uris: [elasticsearch:9200]

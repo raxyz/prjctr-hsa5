@@ -1,0 +1,13 @@
+@mainUrl=http://localhost:8080
+@usersUrl={{mainUrl}}/api/v1/users
+
+POST {{usersUrl}}
+Content-Type: application/json
+
+{
+    "firstName": "Rom {{$randomInt 1 50000}}",
+    "lastName": "Mor {{$randomInt 50000 90000}}"
+}
+
+###
+GET {{usersUrl}}
