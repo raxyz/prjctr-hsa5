@@ -20,4 +20,4 @@
 8. Enjoy :)
 
 Result:
-![stats1](/img/stats1.jpeg)
+![stats1](img/stats1.jpeg)
