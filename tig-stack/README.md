@@ -19,7 +19,7 @@ interval to 15 mins for better view.
 5. run ab test for details: `ab -n 5000 -c 500 -g ab_out.txt http://localhost:8080/api/v1/users`
 6. Enjoy :)
 
-Result:
+### Result
 ![stats1](img/stats1.png)
 
 ## Steps to run with building project
