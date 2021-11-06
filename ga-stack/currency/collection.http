@@ -1,0 +1,4 @@
+@mainUrl=http://localhost:8080
+@currencyUrl={{mainUrl}}/api/v1/currency
+
+GET {{currencyUrl}}/USD:UAH

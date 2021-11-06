@@ -1,0 +1,12 @@
+version: "3.7"
+
+services:
+  currency-app:
+    build:
+      context: .
+      dockerfile: ./currency/Dockerfile
+    container_name: currency-app
+    ports: 
+      - 8080:8080
+    volumes:
+      - ./currency/target/currency-0.0.1-SNAPSHOT.jar:/app.jar

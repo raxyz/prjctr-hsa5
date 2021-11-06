@@ -1,0 +1,5 @@
+webclient:
+    currencyApiUrl: https://api.monobank.ua/bank/currency
+    gaApiUrl: https://google-analytics.com/collect
+ga:
+    tracking_id: ${GA_TRACKING_ID:UA-212201636-1}
