@@ -1,0 +1,33 @@
+version: "3.7"
+
+services:
+  postgresql:
+    image: postgres:14
+    container_name: postgresql
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=password
+    ports:
+      - 5432:5432
+
+  redis:
+    image: redis:6.2.6
+    container_name: redis
+    # environment:
+      # - REDIS_PASSWORD=password
+    ports:
+      - 6379:6379
+
+  stress-test-app:
+    build:
+      context: .
+      dockerfile: ./stress-test/Dockerfile
+    container_name: stress-test-app
+    ports: 
+      - 8080:8080
+    restart: always
+    depends_on:
+      - postgresql
+      - redis
+    volumes:
+      - ./stress-test/target/stress-test-0.0.1-SNAPSHOT.jar:/app.jar
