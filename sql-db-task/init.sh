@@ -1,6 +1,6 @@
 #!/bin/bash
 
-amount=100000
+amount=10000
 query="$(<queries.sql)"
 
 docker exec mysql mysql -uroot -p'password' -e "$query; call populate ($amount);"
