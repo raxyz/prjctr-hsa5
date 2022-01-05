@@ -10,7 +10,7 @@
 | 4. Stress Testing. Approaches and tools         | stress-test-stack |
 | 5. Mathematical methods of analysis             | **TBD** Github task; https://en.wikipedia.org/wiki/GitHub; https://craft.co/github/metrics; https://docs.google.com/spreadsheets/d/1-nr1rGdpJWUKV1R-SxB8I1hqz6cXg5UQfX9loo_FI3Y/edit#gid=1461977761 |
 | 6. High Load Applications Architecture          | **TBD** Instagram task; https://whimsical.com/hlaa-instgram-YDiQseX4qwmh5rbwWK2fTB |
-| 7. Web Servers                                  | **TBD** nginx-task |
+| 7. Web Servers                                  | nginx-task |
 | 8. SQL Databases. Fine Tuning and Optimization  | sql-db-task |
 | 8.1 Transactions, Isolations, Locks             | **TBD** (8.1) Transactions, Isolations, Locks; |
 | 9. NoSQL Databases                              | **TBD** (9) NoSQL DB; https://github.com/matthewreagan/WebstersEnglishDictionary |
