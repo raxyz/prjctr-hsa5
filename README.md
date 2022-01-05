@@ -16,6 +16,6 @@
 10. TBD Queues
 11. TBD CDN
 12. TBD Balancing
-13. TBD Logging
+13. Logging
 14. TBD DDOS
 15. TBD Peak Loading
