@@ -1,0 +1,65 @@
+version: "3.7"
+
+services:
+  mysql:
+    image: mysql:8.0.27
+    container_name: mysql
+    restart: always
+    ports:
+      - 3306:3306
+    volumes:
+      - ./configs/custom-mysql.cnf:/etc/mysql/conf.d/custom-mysql.cnf
+      - ./logs/mysql/slow-queries.log:/var/log/mysql/slow-queries.log
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+
+  elasticsearch:
+    image: elasticsearch:7.16.2
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ports:
+      - 9200:9200
+      - 9300:9300
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:7.16.2
+    container_name: filebeat
+    links: ['elasticsearch', 'mysql'] #, 'kibana']
+    depends_on: ['elasticsearch', 'mysql'] #, 'kibana']
+    restart: always
+    volumes:
+      - ./configs/mysql.yml:/usr/share/filebeat/modules.d/mysql.yml
+      - ./configs/filebeat.yml:/usr/share/filebeat/filebeat.yml
+      # mount the image for reading logs from mysql
+      - ./logs/mysql/:/var/log/mysql/
+    environment:
+      - output.logstash.hosts=["http://graylog:5044"]
+
+  mongo:
+    image: mongo:4.2
+    container_name: mongo
+    restart: always
+
+  graylog:
+    image: graylog/graylog:4.2
+    container_name: graylog
+    links: ['elasticsearch', 'mongo']
+    depends_on: ['elasticsearch', 'mongo']
+    ports:
+      - 9000:9000
+      - 12201:12201
+      - 1514:1514
+      - 5555:5555/udp
+    environment:
+      - GRAYLOG_PASSWORD_SECRET=somepasswordpepper
+      # Password: admin
+      - GRAYLOG_ROOT_PASSWORD_SHA2=8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918
+      - GRAYLOG_HTTP_EXTERNAL_URI=http://127.0.0.1:9000/
+    volumes:
+      - ./configs/graylog.conf:/usr/share/graylog/data/config/graylog.conf
