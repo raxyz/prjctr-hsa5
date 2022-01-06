@@ -15,12 +15,12 @@
 | 9 | 8.1 Transactions, Isolations, Locks               | percona-postgres-task |
 | 10 | 9. NoSQL Databases                               | **TBD** elastic-task |
 | 11 | 9.1 Redis                                        | **TBD** redis-task |
-| 12 | 10. Queues                                       | **TBD** (10) Queues |
-| 13 | 11. Content Delivery Network                     | **TBD** (11) CDN |
-| 14 | 12. Balancing                                    | **TBD** (12) Balancing |
+| 12 | 10. Queues                                       | **TBD** Queues |
+| 13 | 11. Content Delivery Network                     | **TBD** CDN |
+| 14 | 12. Balancing                                    | **TBD** Balancing |
 | 15 | 13. Logging                                      | logging-task |
 | 16 | 14. DDoS Attacks                                 | **TBD** ddos-attack-task |
-| 17 | 15. Peak Loadings                                | **TBD** (15) Peak Loading |
+| 17 | 15. Peak Loadings                                | **TBD** Peak Loading |
 | 18 | 16. Storages Physics: HDD, SSD, RAM              | -- no task -- |
 | 19 | 17. Data structures and Algorithms               | |
 | 20 | 18. Database: Replication                        | |
