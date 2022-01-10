@@ -20,7 +20,7 @@
 | 14 | 12. Balancing                                    | **TBD** Balancing |
 | 15 | 13. Logging                                      | logging-task |
 | 16 | 14. DDoS Attacks                                 | **TBD** ddos-attack-task |
-| 17 | 15. Peak Loadings                                | **TBD** Peak Loading |
+| 17 | 15. Peak Loadings                                | peak-loading-task |
 | 18 | 16. Storages Physics: HDD, SSD, RAM              | -- no task -- |
 | 19 | 17. Data structures and Algorithms               | |
 | 20 | 18. Database: Replication                        | |
