@@ -187,7 +187,7 @@ COMMIT;
 |---|---|
 | `SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED; START TRANSACTION;` | `SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED; START TRANSACTION;` |
 | `select count(*) from records;` |  |
-| | `insert into records(record) values ("Record 3"), ("Record 4");` |
+| | `insert into records(record) values ('Record 3'), ('Record 4');` |
 | | `COMMIT;` |
 | `select count(*) from records;` |  |
 
@@ -200,7 +200,7 @@ COMMIT;
 |---|---|
 | `SET TRANSACTION ISOLATION LEVEL READ COMMITTED; START TRANSACTION;` | `SET TRANSACTION ISOLATION LEVEL READ COMMITTED; START TRANSACTION;` |
 | `select count(*) from records;` |  |
-| | `insert into records(record) values ("Record 3"), ("Record 4");` |
+| | `insert into records(record) values ('Record 3'), ('Record 4');` |
 | | `COMMIT;` |
 | `select count(*) from records;` |  |
 
@@ -213,11 +213,25 @@ COMMIT;
 |---|---|
 | `SET TRANSACTION ISOLATION LEVEL REPEATABLE READ; START TRANSACTION;` | `SET TRANSACTION ISOLATION LEVEL REPEATABLE READ; START TRANSACTION;` |
 | `select count(*) from records;` |  |
-| | `insert into records(record) values ("Record 3"), ("Record 4");` |
+| | `insert into records(record) values ('Record 3'), ('Record 4');` |
 | | `COMMIT;` |
 | `select count(*) from records;` |  |
 
 ![percona-phantom-reads-repeatable-read](imgs/percona-phantom-reads-repeatable-read.png)
+
+**Attempt 2**
+
+| Transaction 1 | Transaction 2 |
+|---|---|
+| `SET TRANSACTION ISOLATION LEVEL REPEATABLE READ; START TRANSACTION;` | `SET TRANSACTION ISOLATION LEVEL REPEATABLE READ; START TRANSACTION;` |
+| `select * from records;` |  |
+| | `insert into records(record) values ('Record 3'), ('Record 4');` |
+| | `COMMIT;` |
+| `select * from records;` |  |
+| `update records set record = 'Record 3 NEW!!!' where id = 3;` |  |
+| `select * from records;` |  |
+
+![percona-phantom-reads-repeatable-read2](imgs/percona-phantom-reads-repeatable-read2.png)
 
 
 #### Serializable
@@ -226,7 +240,7 @@ COMMIT;
 |---|---|
 | `SET TRANSACTION ISOLATION LEVEL SERIALIZABLE; START TRANSACTION;` | `SET TRANSACTION ISOLATION LEVEL SERIALIZABLE; START TRANSACTION;` |
 | `select count(*) from records;` |  |
-| | `insert into records(record) values ("Record 3"), ("Record 4");` |
+| | `insert into records(record) values ('Record 3'), ('Record 4');` |
 
 ![percona-phantom-reads-serializable](imgs/percona-phantom-reads-serializable.png)
 
@@ -237,5 +251,5 @@ COMMIT;
 |---|---|---|---|---|
 | **Read Uncommitted**  | possible | not possible | possible | possible |
 | **Read Committed**    | not possible | not possible | possible | possible |
-| **Repeatable Read**   | not possible | not possible | not possible | not possible |
+| **Repeatable Read**   | not possible | not possible | not possible | ~~not possible~~ possible |
 | **Serializable**      | not possible | not possible | not possible | not possible |

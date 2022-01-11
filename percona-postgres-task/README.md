@@ -23,5 +23,5 @@ Full description you can find in separate files:
 |---|---|---|---|---|
 | **Read Uncommitted**  | possible | not possible | possible | possible |
 | **Read Committed**    | not possible | not possible | possible | possible |
-| **Repeatable Read**   | not possible | not possible | not possible | not possible |
+| **Repeatable Read**   | not possible | not possible | not possible | ~~not possible~~ possible |
 | **Serializable**      | not possible | not possible | not possible | not possible |
