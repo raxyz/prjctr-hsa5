@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery Autocomplete</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#words").autocomplete({
+                source: function (request, response) {
+                    console.log(request);
+                    var numberOfFuzziness = 0;
+                    if (request.term.length > 7) {
+                        numberOfFuzziness = 3;
+                    }
+
+                    var query = {
+                        "size": 20,
+                        "query": {
+                            "bool": {
+                                "should": [
+                                    {
+                                        "match_phrase_prefix": {
+                                            "word": {
+                                                "query": request.term
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "fuzzy": {
+                                            "word": {
+                                                "value": request.term,
+                                                "fuzziness": numberOfFuzziness
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+
+                    $.ajax({
+                        method: "POST",
+                        url: "/search/english-dictionary/_search",
+                        data: JSON.stringify(query),
+                        contentType: 'application/json',
+                        success: function (data) {
+                            console.log(data);
+                            let res = [];
+                            for (let h of data.hits.hits) {
+                                res.push(h._source.word);
+                            }
+                            response(res);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div>
+        <label for="words">Words: </label>
+        <input id="words">
+    </div>
+</body>
+
+</html>

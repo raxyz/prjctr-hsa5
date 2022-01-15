@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  elasticsearch:
+    image: elasticsearch:7.16.2
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ports:
+      - 9200:9200
+      - 9300:9300
+
+  nginx:
+    image: nginx:1.21
+    container_name: nginx
+    volumes:
+      - ./nginx-configs/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx-configs/html:/usr/share/nginx/html
+    ports:
+      - 8080:80
+

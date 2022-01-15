@@ -22,5 +22,19 @@
 | 16 | 14. DDoS Attacks                                 | **TBD** ddos-attack-task |
 | 17 | 15. Peak Loadings                                | peak-loading-task |
 | 18 | 16. Storages Physics: HDD, SSD, RAM              | -- no task -- |
-| 19 | 17. Data structures and Algorithms               | |
-| 20 | 18. Database: Replication                        | |
+| 19 | 17. Data structures and Algorithms               | **TBD** |
+| 20 | 18. Database: Replication                        | **TBD** |
+| 21 | 19. Database: Sharding                           | **TBD** |
+| 22 | 20. Backups                                      | **TBD** |
+| 23 | 21. Profiling                                    | **TBD** |
+| 24 | 22. Continuous Deployment                        | **TBD** |
+| 25 | 23. AWS: EC2 and Load Balancer                   | **TBD** |
+| 26 | 24. AWS: S3                                      | **TBD** |
+| 27 | 25. AWS: Autoscale groups                        | **TBD** |
+| 28 | 26. AWS: Serverless calculations                 | **TBD** |
+| 29 | 27. Art of Trade-Offs. ATAM                      | **TBD** |
+| 30 | 28. Building and Managing Tech Teams             | **TBD** |
+
+## Useful links:
+
+- [Understanding Nginx proxy_pass and url path translations](https://tarunlalwani.com/post/nginx-proxypass-server-paths/)
