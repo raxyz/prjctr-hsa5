@@ -13,7 +13,7 @@
 | 7 | 7. Web Servers                                    | nginx-task |
 | 8 | 8. SQL Databases. Fine Tuning and Optimization    | sql-db-task |
 | 9 | 8.1 Transactions, Isolations, Locks               | percona-postgres-task |
-| 10 | 9. NoSQL Databases                               | **TBD** elastic-task |
+| 10 | 9. NoSQL Databases                               | elastic-task |
 | 11 | 9.1 Redis                                        | **TBD** redis-task |
 | 12 | 10. Queues                                       | **TBD** Queues |
 | 13 | 11. Content Delivery Network                     | **TBD** CDN |
@@ -22,8 +22,8 @@
 | 16 | 14. DDoS Attacks                                 | **TBD** ddos-attack-task |
 | 17 | 15. Peak Loadings                                | peak-loading-task |
 | 18 | 16. Storages Physics: HDD, SSD, RAM              | -- no task -- |
-| 19 | 17. Data structures and Algorithms               | **TBD** |
-| 20 | 18. Database: Replication                        | **TBD** |
+| 19 | 17. Data structures and Algorithms               | **TBD** data-structure-sorting-task |
+| 20 | 18. Database: Replication                        | **TBD** db-replication-task |
 | 21 | 19. Database: Sharding                           | **TBD** |
 | 22 | 20. Backups                                      | **TBD** |
 | 23 | 21. Profiling                                    | **TBD** |

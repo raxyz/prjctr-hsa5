@@ -1,0 +1,6 @@
+[mysqld]
+server-id=2
+log-bin=mysql-bin
+relay-log=mysql-relay-bin
+binlog-do-db=task
+default_authentication_plugin=mysql_native_password

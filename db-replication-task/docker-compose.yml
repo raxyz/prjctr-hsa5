@@ -1,0 +1,40 @@
+version: "3.9"
+
+services:
+  mysql-m:
+    image: mysql:8.0.27
+    container_name: mysql-m
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+    networks:
+      app:
+        ipv4_address: 172.20.0.3
+
+
+  mysql-s1:
+    image: mysql:8.0.27
+    container_name: mysql-s1
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+    networks:
+      app:
+        ipv4_address: 172.20.0.4
+
+
+  mysql-s2:
+    image: mysql:8.0.27
+    container_name: mysql-s2
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+    networks:
+      app:
+        ipv4_address: 172.20.0.5
+
+networks:
+  app:
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24
