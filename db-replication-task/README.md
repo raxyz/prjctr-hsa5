@@ -25,7 +25,6 @@ Drop column task can be tested via script: `sh drop_column_task.sh`
 **Result:**
 
 ![drop_column_task](img/drop_column_task.png)
-![insert_task](img/insert_task.png)
 
 
 #### Turn off slave1 task
