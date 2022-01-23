@@ -24,7 +24,7 @@
 | 18 | 16. Storages Physics: HDD, SSD, RAM              | -- no task -- |
 | 19 | 17. Data structures and Algorithms               | **TBD** data-structure-sorting-task |
 | 20 | 18. Database: Replication                        | db-replication-task |
-| 21 | 19. Database: Sharding                           | **TBD** |
+| 21 | 19. Database: Sharding                           | db-sharding-task |
 | 22 | 20. Backups                                      | **TBD** |
 | 23 | 21. Profiling                                    | **TBD** |
 | 24 | 22. Continuous Deployment                        | **TBD** |
