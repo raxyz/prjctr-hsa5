@@ -15,7 +15,7 @@
 | 9 | 8.1 Transactions, Isolations, Locks               | percona-postgres-task |
 | 10 | 9. NoSQL Databases                               | elastic-task |
 | 11 | 9.1 Redis                                        | **TBD** redis-task |
-| 12 | 10. Queues                                       | **TBD** Queues |
+| 12 | 10. Queues                                       | **TBD** queues-task |
 | 13 | 11. Content Delivery Network                     | **TBD** CDN |
 | 14 | 12. Balancing                                    | **TBD** Balancing |
 | 15 | 13. Logging                                      | logging-task |
@@ -25,15 +25,15 @@
 | 19 | 17. Data structures and Algorithms               | **TBD** data-structure-sorting-task |
 | 20 | 18. Database: Replication                        | db-replication-task |
 | 21 | 19. Database: Sharding                           | db-sharding-task |
-| 22 | 20. Backups                                      | **TBD** |
-| 23 | 21. Profiling                                    | **TBD** |
-| 24 | 22. Continuous Deployment                        | **TBD** |
-| 25 | 23. AWS: EC2 and Load Balancer                   | **TBD** |
-| 26 | 24. AWS: S3                                      | **TBD** |
-| 27 | 25. AWS: Autoscale groups                        | **TBD** |
-| 28 | 26. AWS: Serverless calculations                 | **TBD** |
-| 29 | 27. Art of Trade-Offs. ATAM                      | **TBD** |
-| 30 | 28. Building and Managing Tech Teams             | **TBD** |
+| 22 | 20. Backups                                      | **TBD** backups-task |
+| 23 | 21. Profiling                                    | **TBD** profiling-task |
+| 24 | 22. Continuous Deployment                        | **TBD** cd-task |
+| 25 | 23. AWS: EC2 and Load Balancer                   | aws-ec2-task |
+| 26 | 24. AWS: S3                                      | **TBD** aws-s3-task |
+| 27 | 25. AWS: Autoscale groups                        | **TBD** aws-autoscale-task |
+| 28 | 26. AWS: Serverless calculations                 | **TBD** aws-lambda-task |
+| 29 | 27. Art of Trade-Offs. ATAM                      | -- no task -- |
+| 30 | 28. Building and Managing Tech Teams             | -- no task -- |
 
 ## Useful links:
 
