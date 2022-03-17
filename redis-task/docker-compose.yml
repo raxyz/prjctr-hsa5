@@ -1,0 +1,86 @@
+version: "3.9"
+
+services:
+  redis_1:
+    image: redis:6.2.6
+    container_name: redis_1
+    volumes:
+      - ./redis-cluster.conf:/usr/local/etc/redis/redis.conf
+    networks:
+      - redis-cluster
+    ports:
+      - 7001:6379
+    entrypoint: [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
+
+  redis_2:
+    image: redis:6.2.6
+    container_name: redis_2
+    volumes:
+      - ./redis-cluster.conf:/usr/local/etc/redis/redis.conf
+    ports:
+      - 7002:6379
+    networks:
+      - redis-cluster
+    entrypoint: [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
+
+  redis_3:
+    image: redis:6.2.6
+    container_name: redis_3
+    volumes:
+      - ./redis-cluster.conf:/usr/local/etc/redis/redis.conf
+    ports:
+      - 7003:6379
+    networks:
+      - redis-cluster
+    entrypoint: [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
+
+  redis_4:
+    image: redis:6.2.6
+    container_name: redis_4
+    volumes:
+      - ./redis-cluster.conf:/usr/local/etc/redis/redis.conf
+    ports:
+      - 7004:6379
+    networks:
+      - redis-cluster
+    entrypoint: [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
+
+  redis_5:
+    image: redis:6.2.6
+    container_name: redis_5
+    volumes:
+      - ./redis-cluster.conf:/usr/local/etc/redis/redis.conf
+    ports:
+      - 7005:6379
+    networks:
+      - redis-cluster
+    entrypoint: [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
+
+  redis_6:
+    image: redis:6.2.6
+    container_name: redis_6
+    volumes:
+      - ./redis-cluster.conf:/usr/local/etc/redis/redis.conf
+    ports:
+      - 7006:6379
+    networks:
+      - redis-cluster
+    entrypoint: [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
+
+  redis-cli:
+    image: redis:6.2.6
+    container_name: redis-cli
+    networks:
+      - redis-cluster
+    volumes:
+      - ./init.sh:/tmp/init.sh
+    depends_on:
+      - redis_1
+      - redis_2
+      - redis_3
+      - redis_4
+      - redis_5
+      - redis_6
+
+networks:
+  redis-cluster:

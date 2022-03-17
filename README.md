@@ -14,7 +14,7 @@
 | 8 | 8. SQL Databases. Fine Tuning and Optimization    | sql-db-task |
 | 9 | 8.1 Transactions, Isolations, Locks               | percona-postgres-task |
 | 10 | 9. NoSQL Databases                               | elastic-task |
-| 11 | 9.1 Redis                                        | **TBD** redis-task |
+| 11 | 9.1 Redis                                        | redis-task |
 | 12 | 10. Queues                                       | **TBD** queues-task |
 | 13 | 11. Content Delivery Network                     | **TBD** CDN |
 | 14 | 12. Balancing                                    | **TBD** Balancing |
