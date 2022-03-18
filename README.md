@@ -15,7 +15,7 @@
 | 9 | 8.1 Transactions, Isolations, Locks               | percona-postgres-task |
 | 10 | 9. NoSQL Databases                               | elastic-task |
 | 11 | 9.1 Redis                                        | redis-task |
-| 12 | 10. Queues                                       | **TBD** queues-task |
+| 12 | 10. Queues                                       | queues-task |
 | 13 | 11. Content Delivery Network                     | **TBD** CDN |
 | 14 | 12. Balancing                                    | **TBD** Balancing |
 | 15 | 13. Logging                                      | logging-task |
