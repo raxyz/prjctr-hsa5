@@ -22,7 +22,7 @@
 | 16 | 14. DDoS Attacks                                 | **TBD** ddos-attack-task |
 | 17 | 15. Peak Loadings                                | peak-loading-task |
 | 18 | 16. Storages Physics: HDD, SSD, RAM              | -- no task -- |
-| 19 | 17. Data structures and Algorithms               | **TBD** data-structure-sorting-task |
+| 19 | 17. Data structures and Algorithms               | data-structure-sorting-task |
 | 20 | 18. Database: Replication                        | db-replication-task |
 | 21 | 19. Database: Sharding                           | db-sharding-task |
 | 22 | 20. Backups                                      | **TBD** backups-task |
