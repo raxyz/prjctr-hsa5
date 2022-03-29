@@ -30,7 +30,7 @@
 | 24 | 22. Continuous Deployment                        | **TBD** cd-task |
 | 25 | 23. AWS: EC2 and Load Balancer                   | aws-ec2-task |
 | 26 | 24. AWS: S3                                      | aws-s3-task |
-| 27 | 25. AWS: Autoscale groups                        | **TBD** aws-autoscale-task |
+| 27 | 25. AWS: Autoscale groups                        | aws-autoscale-task |
 | 28 | 26. AWS: Serverless calculations                 | **TBD** aws-lambda-task |
 | 29 | 27. Art of Trade-Offs. ATAM                      | -- no task -- |
 | 30 | 28. Building and Managing Tech Teams             | -- no task -- |
