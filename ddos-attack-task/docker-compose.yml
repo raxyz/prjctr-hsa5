@@ -1,0 +1,55 @@
+version: "3.9"
+
+services:
+  nginx-unsafe:
+    image: nginx:1.21.4-alpine
+    # image: ubuntu/nginx:1.18-20.04_beta
+    container_name: nginx-unsafe
+    volumes:
+      # - ./nginx-configs/:/etc/nginx/conf.d/
+      - ./nginx-configs/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 8081:80
+      - 9956:9955/udp
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 32M
+    networks:
+     ddosnet:
+       ipv4_address: 10.240.0.11
+
+  nginx-safe:
+    image: nginx:1.21.4-alpine
+    # image: ubuntu/nginx:1.18-20.04_beta
+    container_name: nginx-safe
+    volumes:
+      - ./nginx-configs/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 8080:80
+      - 9955:9955/udp
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 32M
+    networks:
+     ddosnet:
+       ipv4_address: 10.240.0.12
+
+  ddos:
+    build: .
+    container_name: ddos
+    stdin_open: true
+    tty: true
+    networks:
+     ddosnet:
+       ipv4_address: 10.240.0.10
+
+networks:
+  ddosnet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.240.0.0/24
